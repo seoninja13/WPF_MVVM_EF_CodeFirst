@@ -17,6 +17,7 @@ namespace FriendOrganizer.UI.Data
             _contextCreator = contextCreator;
         }
 
+        // test
         public async Task<List<Friend>> GetAllAsync()
         {
             using (var ctx = _contextCreator())
