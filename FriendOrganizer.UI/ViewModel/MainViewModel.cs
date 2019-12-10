@@ -12,20 +12,23 @@ namespace FriendOrganizer.UI.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private INavigationViewModel _navigationViewModel;
 
-        public MainViewModel(INavigationViewModel navigationViewModel)
+        public MainViewModel(INavigationViewModel navigationViewModel, IFriendDetailViewModel friendDetailViewModel)
         {
-            _navigationViewModel = navigationViewModel;
+            NavigationViewModel = navigationViewModel;
+            FriendDetailViewModel = friendDetailViewModel;
         }
 
         public async Task LoadAsync()
         {
-            await _navigationViewModel.LoadAsync();
+            await NavigationViewModel.LoadAsync();
 
         }
+        // we dont need the 'set;' beacuse we set the property in the constructor.
+        public INavigationViewModel NavigationViewModel { get; }
 
 
+        public IFriendDetailViewModel FriendDetailViewModel { get; }
     }
 
 }
